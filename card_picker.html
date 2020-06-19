@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 
 <head>
-
+	
+	<meta charset="UTF-8">
+	
 	<style>
 
 		* {
@@ -77,6 +79,11 @@
 			width: inherit;
 		}
 
+		.card_image {
+			height: auto;
+			width: 32em;
+		}
+	
 		
 	</style>
 	<script>
@@ -101,21 +108,21 @@
 
 			shuffle( hearts )
 			shuffle( clubs )
-			shuffle( clubs )
+			shuffle( spades )
 			shuffle( diamonds )
 			s_index = 0
 			h_index = 0
 			c_index = 0
 			d_index = 0
 
-			document.getElementById("card").textContent = " "
+			document.getElementById("card").textContent = "~"
 			
 			document.getElementById("pull_heart").addEventListener("click", draw_h)
 			document.getElementById("pull_diamond").addEventListener("click", draw_d)
 			document.getElementById("pull_club").addEventListener("click", draw_c)
 			document.getElementById("pull_spade").addEventListener("click", draw_s)
-			
-			
+
+			populateCard( "locations/worship.png", "A PLACE OF WORSHIP." )
 		}
 
 		function draw_h() {
@@ -172,6 +179,12 @@
 		
 		  return array;
 		}	
+
+		function populateCard(img, flav) {
+			document.getElementById("flavour").textContent = flav
+			document.getElementById("card_image").src = img
+		}
+		
 	</script>
 </head>
 
@@ -187,6 +200,10 @@
 	<br>
 	<br>
 	<div class="container">
+		<div >
+			<img class="card_image" id="card_image"/>
+		<div>
+		<div class="cardStyle" id="flavour"></div>
 		<div class="cardStyle" id="card"></div>
 		
 		<div class="hContainer">
@@ -200,11 +217,11 @@
 			</div>
 			<div class="vContainer">
 				<button id="pull_diamond"><img src="diamond.png" /></button>
-				<div class="sText">Beings</div>
+				<div class="sText">Things</div>
 			</div>
 			<div class="vContainer">
 				<button id="pull_club"><img src="club.png" /></button>
-				<div class="sText">Things</div>
+				<div class="sText">Beings</div>
 			</div>
 		</div>
 		
